@@ -1,5 +1,6 @@
 """CSC 161 Lab: Classes
 
+This program implements a Python class that represents a standard playing card.
 Zubair Ab Aziz
 Lab Section MW 6:15pm-7:30pm
 Spring 2019
@@ -9,6 +10,7 @@ from random import randrange
 
 
 class PlayingCard:
+    # Playing Card class to represent playing cards
     def __init__(self, rank, suit):
         self.rank = rank
         self.suit = suit
@@ -38,6 +40,7 @@ class PlayingCard:
 
 
 def make_random_cards(n):
+    # generates a list of random cards
     cards_list = []
     for i in range(n):
         rank = randrange(1, 14, 1)
@@ -51,7 +54,6 @@ def make_random_cards(n):
         elif (suitNum == 4):
             suit = "s"
         cards_list.append(PlayingCard(rank, suit))
-
     return cards_list
 
 
