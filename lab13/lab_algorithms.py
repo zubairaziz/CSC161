@@ -1,5 +1,6 @@
 """CSC 161 Lab: Algorithms
 
+This lab demonstrates a recursive algorithm to get the sum of a list
 Zubair Ab Aziz
 Lab Section MW 6:15pm-7:30pm
 Spring 2019

@@ -1,5 +1,8 @@
 """CSC 161 Lab: Object Oriented Design
 
+This lab simulates an ATM with classes and object oriented design
+Extra credit: I did the GUI thing for the atm. Check it out
+
 Zubair Ab Aziz
 Lab Section MW 6:15pm-7:30pm
 Spring 2019

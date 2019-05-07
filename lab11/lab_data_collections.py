@@ -1,5 +1,7 @@
 """CSC 161 Lab: Data Collections
 
+This lab generates the frequency distribution of each rank-suit combination
+of a list of randomly generated cards
 Zubair Ab Aziz
 Lab Section MW 6:15pm-7:30pm
 Spring 2019
@@ -108,10 +110,16 @@ def std_dev(counts):
     # DO NOT REMOVE ABOVE
 
     _stdev = 0.0
-    mean = sum(counts)/(len(counts)-1)
-    for i in counts:
-        _stdev += (sqrt((i-mean)**2))/(len(counts)-1)
-
+    weight_sum = 0
+    diff_sq_sum = 0
+    average_rank = 0
+    count_sum = sum(counts)
+    for i in range(len(counts)):
+        weight_sum += (counts[i]*(i))
+    average_rank = weight_sum/count_sum
+    for i in range(len(counts)):
+        diff_sq_sum += (counts[i]*((i+1) - average_rank)**2)
+    _stdev += (sqrt(diff_sq_sum/count_sum))
     return _stdev
 
 

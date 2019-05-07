@@ -1,3 +1,19 @@
+"""CSC 161 Project: Milestone III
+
+Milestone III for the project.
+I implement my own algorithm in this milestone. Major differences in my algorithm:
+- Stores historic lows and historic highs for stock prices
+- Saves 5-day average and 20-day average.
+- Compares 5-day average with 20-day average to buy and sell.
+- If new historic high, sell as much as possible.
+- If new historic low, sell as much as possible.
+
+Zubair Ab Aziz
+Lab Section MW 6:15pm-7:30pm
+Spring 2019
+"""
+
+
 def open_file(filename):
     try:
         file = open(filename, 'r')
@@ -204,14 +220,14 @@ def alg_mine(filename):
     stocks_owned = 0
     cash_balance = 1000
     qty = 0
-    historic_high = 0
+    historic_high = 0  # start at 0
     historic_low = 1000  # arbitrary number that is really high
     high_values = get_values(filename, 2)
     low_values = get_values(filename, 3)
     for i in range(len(high_values)):
         low_price = low_values[i]
         high_price = high_values[i]
-        to_buy = (cash_balance//low_price)
+        to_buy = (cash_balance//low_price)  # maximum amount to buy
         if (low_price < historic_low):
             historic_low = low_price
         if (high_price > historic_high):

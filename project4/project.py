@@ -1,3 +1,16 @@
+"""CSC 161 Project: Milestone IV
+
+Milestone IV for the project.
+Extra credit implemented:
+- Object Oriented Design (tradinglib & filehandler)
+- Modules (see tradinglib.py)
+- Statistics (Has statistics that run at the end of every trading alg)
+
+Zubair Ab Aziz
+Lab Section MW 6:15pm-7:30pm
+Spring 2019
+"""
+
 from filehandler import Filehandler
 from tradinglib import TradingLibrary
 

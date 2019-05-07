@@ -7,6 +7,7 @@ class Account:
         self.balance = balance
 
     def generateUserID(self):
+        # Generates a userID with the first letter of firstname and lastname
         userID = self.first_name[0].lower()+self.last_name.lower()
         return userID
 
@@ -28,10 +29,12 @@ class Account:
     def withdraw(self, amount):
         if (amount > self.balance):
             print('Cannot withdraw more cash than you have in your account')
+        elif (amount <= 0):
+            print('Cannot withdraw 0 or a negative number')
         else:
             self.balance -= amount
 
     def __repr__(self):
-        return "First Name: {0}\nLast Name: {1}\nUser ID: {2}\nBalance: {3:.2f}\n"\
-            .format(
-                self.first_name, self.last_name, self.userID, self.balance)
+        return "First Name: {0}\nLast Name: {1}\nUser ID: {2}\nBalance: {3:.2f}\
+            \n".format(self.first_name, self.last_name, self.userID,
+                       self.balance)

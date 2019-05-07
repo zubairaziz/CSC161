@@ -1,6 +1,7 @@
 """CSC 161 Project: Milestone II
 
-Milestone II for the project. This is where we implement the moving average algorithm
+Milestone II for the project. 
+This is where we implement the moving average algorithm
 Zubair Ab Aziz
 Lab Section MW 6:15pm-7:30pm
 Spring 2019
@@ -28,18 +29,18 @@ def test_data(filename, col, day):
     """A test function to query the data you loaded into your program.
 
     Args:
-        filename: A string for the filename containing the stock data,
-                  in CSV format.
+    filename: A string for the filename containing the stock data,
+                in CSV format.
 
-        col: A string of either "date", "open", "high", "low", "close",
-             "volume", or "adj_close" for the column of stock market data to
-             look into.
+    col: A string of either "date", "open", "high", "low", "close",
+            "volume", or "adj_close" for the column of stock market data to
+            look into.
 
-             The string arguments MUST be LOWERCASE!
+            The string arguments MUST be LOWERCASE!
 
-        day: An integer reflecting the absolute number of the day in the
-             data to look up, e.g. day 1, 15, or 1200 is row 1, 15, or 1200
-             in the file.
+    day: An integer reflecting the absolute number of the day in the
+            data to look up, e.g. day 1, 15, or 1200 is row 1, 15, or 1200
+            in the file.
 
     Returns:
         A value selected for the stock on some particular day, in some
@@ -60,35 +61,35 @@ def test_data(filename, col, day):
 def transact(funds, stocks, qty, price, buy=False, sell=False):
     """A bookkeeping function to help make stock transactions.
 
-       Args:
-           funds: An account balance, a float; it is a value of how much money
-                  you have, currently.
+    Args:
+        funds: An account balance, a float; it is a value of how much money
+                you have, currently.
 
-           stocks: An int, representing the number of stock you currently own.
+        stocks: An int, representing the number of stock you currently own.
 
-           qty: An int, representing how many stock you wish to buy or sell.
+        qty: An int, representing how many stock you wish to buy or sell.
 
-           price: An float reflecting a price of a single stock.
+        price: An float reflecting a price of a single stock.
 
-           buy: This option parameter, if set to true, will initiate a buy.
+        buy: This option parameter, if set to true, will initiate a buy.
 
-           sell: This option parameter, if set to true, will initiate a sell.
+        sell: This option parameter, if set to true, will initiate a sell.
 
-       Returns:
-           Two values *must* be returned. The first (a float) is the new
-           account balance (funds) as the transaction is completed. The second
-           is the number of stock now owned (an int) after the transaction is
-           complete.
+    Returns:
+        Two values *must* be returned. The first (a float) is the new
+        account balance (funds) as the transaction is completed. The second
+        is the number of stock now owned (an int) after the transaction is
+        complete.
 
-           Error condition #1: If the `buy` and `sell` keyword parameters are
-           both set to true, or both false. You *must* print an error message,
-           and then return the `funds` and `stocks` parameters unaltered. This
-           is an ambiguous transaction request!
+        Error condition #1: If the `buy` and `sell` keyword parameters are
+        both set to true, or both false. You *must* print an error message,
+        and then return the `funds` and `stocks` parameters unaltered. This
+        is an ambiguous transaction request!
 
-           Error condition #2: If you buy, or sell without enough funds or
-           stocks to sell, respectively.  You *must* print an error message,
-           and then return the `funds` and `stocks` parameters unaltered. This
-           is an ambiguous transaction request!
+        Error condition #2: If you buy, or sell without enough funds or
+        stocks to sell, respectively.  You *must* print an error message,
+        and then return the `funds` and `stocks` parameters unaltered. This
+        is an ambiguous transaction request!
     """
     qty = int(qty)
     price = float(price)
@@ -131,12 +132,12 @@ def alg_moving_average(filename):
     Algorithm:
     - Trading must start on day 21, taking the average of the previous 20 days.
     - You must buy shares if the current day price is 5%, or more, lower than
-      the moving average.
+    the moving average.
     - You must sell shares if the current day price is 5% higher, or more than
-      the moving average.
+    the moving average.
     - You must buy, or sell 10 stocks per transaction.
     - You are free to choose which column of stock data to use (open, close,
-      low, high, etc)
+    low, high, etc)
 
     Args:
         A filename, as a string.
@@ -163,8 +164,10 @@ def alg_moving_average(filename):
     for i in range(len(data)):
         open_values.append(float(data[i][1]))
     for i in range(len(open_values)):
-        if (i >= 19):
-            current_average = sum(open_values[i-19:i])/20
+        # for i in range(100):
+        if (i >= 20):
+            current_average = sum(open_values[i-20:i])/20
+            print(current_average)
             current_price = open_values[i]
             if (current_average <= (0.95*current_price)):
                 cash_balance, stocks_owned = transact(
